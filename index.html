@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171717">
+  <meta name="description" content="ZORU is a Solana meme token. Small Hamster. Big Attitude.">
+  <title>ZORU | Small Hamster. Big Attitude.</title>
+  <link rel="icon" type="image/png" href="ZORU_coin_only.png">
+  <style>
+    :root {
+      --dark: #171717;
+      --panel: #232220;
+      --cream: #f4eee4;
+      --beige: #dfcdb5;
+      --muted: #ada79e;
+      --line: #45413b;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--dark);
+      color: var(--cream);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+    .wrap { max-width: 1200px; margin: auto; padding: 0 25px; }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: #141414;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand { font-size: 29px; font-weight: 900; letter-spacing: -2px; }
+    .navlinks { display: flex; gap: 24px; flex-wrap: wrap; }
+    .navlinks a { font-size: 13px; }
+    .navlinks a:hover, .footer-links a:hover { color: var(--beige); }
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 22px;
+      border: 1px solid var(--beige);
+      border-radius: 7px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .primary { background: var(--cream); color: #181818; }
+    .secondary { background: transparent; color: var(--cream); }
+    .hero {
+      background: linear-gradient(110deg, #1a1a1a, #38322b);
+      padding: 90px 0;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 45px;
+      align-items: center;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 12px;
+      color: var(--beige);
+    }
+    h1 {
+      font-size: clamp(85px, 13vw, 160px);
+      letter-spacing: -10px;
+      line-height: 1;
+      margin: 20px 0;
+    }
+    .tagline {
+      font-size: clamp(20px, 3vw, 34px);
+      letter-spacing: 5px;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .hero p { max-width: 540px; color: #d7d0c7; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .hero-art {
+      background: #26231f;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 35px;
+      text-align: center;
+    }
+    .hero-art img {
+      width: min(100%, 380px);
+      height: auto;
+      display: block;
+      margin: auto;
+      border-radius: 12px;
+    }
+    .hero-art span {
+      display: block;
+      margin-top: 20px;
+      letter-spacing: 4px;
+      font-size: 12px;
+      color: var(--beige);
+    }
+    section { padding: 75px 0; }
+    .section-heading { margin: 0 0 28px; font-size: 32px; }
+    .quicklinks {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+    .quicklinks a {
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 20px 14px;
+      background: #202020;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .quicklinks a:hover { border-color: var(--beige); }
+    .quicklinks small { display: block; color: var(--muted); font-weight: 400; }
+    .light-section { background: #eae2d6; color: #171717; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .card {
+      border: 1px solid #d0c5b7;
+      background: #f7f2eb;
+      padding: 30px;
+      border-radius: 12px;
+    }
+    .card h3 { font-size: 24px; margin-top: 0; }
+    .label {
+      color: #71695f;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .info-row {
+      padding: 13px 0;
+      border-bottom: 1px solid #d7ccbf;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+    .info-row strong { text-align: right; }
+    .address {
+      overflow-wrap: anywhere;
+      font-family: monospace;
+      background: #e7ddd0;
+      border-radius: 7px;
+      padding: 14px;
+      font-size: 12px;
+    }
+    .copy-btn {
+      margin-top: 12px;
+      background: #171717;
+      color: white;
+      border: none;
+      padding: 11px 18px;
+      border-radius: 6px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .step {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .step b { color: var(--beige); font-size: 25px; }
+    .step h3 { margin-bottom: 8px; }
+    .step p { color: var(--muted); }
+    .community { text-align: center; background: #282520; }
+    .community p { color: #d5c9b9; }
+    .disclaimer {
+      padding: 28px 0;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+    footer {
+      background: #111;
+      border-top: 1px solid var(--line);
+      padding: 32px 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; }
+    @media (max-width: 850px) {
+      .hero-grid, .cards { grid-template-columns: 1fr; }
+      .quicklinks { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: 1fr; }
+      nav { flex-wrap: wrap; padding: 16px 0; }
+      .navlinks { order: 3; width: 100%; gap: 14px; }
+      h1 { letter-spacing: -5px; }
+      .hero { padding: 55px 0; }
+    }
+    @media (max-width: 450px) {
+      .quicklinks { grid-template-columns: 1fr; }
+      .wrap { padding: 0 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#home" class="brand">ZORU</a>
+    <div class="navlinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#how-to-buy">How to Buy</a>
+      <a href="#community">Community</a>
+    </div>
+    <a class="btn primary" target="_blank" rel="noopener noreferrer"
+      href="https://raydium.io/swap/?inputMint=sol&amp;outputMint=AWvR8cEvTgr9QDxCf8kz5FpDJsjVCMqstsFHpP47mpKu">
+      Trade ZORU →
+    </a>
+  </nav>
+</header>
+
+<main>
+  <div id="home" class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Solana Meme Token</div>
+        <h1>ZORU</h1>
+        <div class="tagline">SMALL HAMSTER.<br>BIG ATTITUDE.</div>
+        <p>
+          ZORU is a Solana meme token built around a little
+          hamster with a big personality. Memes, creativity,
+          and community — without the big promises.
+        </p>
+        <div class="actions">
+          <a class="btn primary" target="_blank" rel="noopener noreferrer"
+            href="https://raydium.io/swap/?inputMint=sol&amp;outputMint=AWvR8cEvTgr9QDxCf8kz5FpDJsjVCMqstsFHpP47mpKu">
+            Trade ZORU →
+          </a>
+          <a class="btn secondary" target="_blank" rel="noopener noreferrer"
+            href="https://discord.gg/SageKPEGw">
+            Join Community
+          </a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="ZORU_coin_only.png" alt="Original ZORU hamster logo">
+        <span>JUST A LITTLE GUY.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap quicklinks">
+    <a target="_blank" rel="noopener noreferrer"
+      href="https://raydium.io/swap/?inputMint=sol&amp;outputMint=AWvR8cEvTgr9QDxCf8kz5FpDJsjVCMqstsFHpP47mpKu">
+      Raydium → <small>Trade ZORU</small>
+    </a>
+    <a target="_blank" rel="noopener noreferrer"
+      href="https://dexscreener.com/solana/hk48pn1z4zwlauyrlhzvff6h6p4xqizpdjfniva2nerz">
+      DEX Screener → <small>View Chart</small>
+    </a>
+    <a target="_blank" rel="noopener noreferrer"
+      href="https://www.geckoterminal.com/solana/pools/Hk48pn1z4ZWLAuYrLHZVfF6H6P4xQiZpdjfNivA2NERz">
+      GeckoTerminal → <small>Track Market</small>
+    </a>
+    <a target="_blank" rel="noopener noreferrer"
+      href="https://x.com/ZoruOnSol">
+      X (Twitter) → <small>Follow Updates</small>
+    </a>
+    <a target="_blank" rel="noopener noreferrer"
+      href="https://discord.gg/SageKPEGw">
+      Discord → <small>Join Community</small>
+    </a>
+  </div>
+
+  <section id="about" class="light-section">
+    <div class="wrap">
+      <h2 class="section-heading">Meet ZORU.</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="label">About</div>
+          <h3>Small Hamster. Big Attitude.</h3>
+          <p>
+            ZORU is an independent meme-token project on
+            Solana. It celebrates hamster memes, internet
+            culture, and an open community of enthusiasts.
+          </p>
+          <p>
+            No guaranteed returns. No promises of future
+            exchange listings. Just a little hamster with
+            a big attitude.
+          </p>
+        </div>
+        <div class="card">
+          <div class="label">Project Information</div>
+          <h3>Built on Solana.</h3>
+          <p>
+            ZORU can be traded through its existing Raydium
+            liquidity pool. Its token supply is fixed,
+            with mint and freeze authorities revoked.
+          </p>
+          <p>
+            The token currently has limited liquidity and
+            concentrated ownership. Review the on-chain
+            information before trading.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tokenomics" class="light-section">
+    <div class="wrap">
+      <h2 class="section-heading">Token Information</h2>
+      <div class="card">
+        <div class="info-row">
+          <span>Token</span><strong>ZORU</strong>
+        </div>
+        <div class="info-row">
+          <span>Blockchain</span><strong>Solana Mainnet</strong>
+        </div>
+        <div class="info-row">
+          <span>Total Supply</span><strong>1,000,000,000 ZORU</strong>
+        </div>
+        <div class="info-row">
+          <span>Decimals</span><strong>6</strong>
+        </div>
+        <div class="info-row">
+          <span>Mint Authority</span><strong>Revoked</strong>
+        </div>
+        <div class="info-row">
+          <span>Freeze Authority</span><strong>Revoked</strong>
+        </div>
+        <p><strong>Official Mint Address</strong></p>
+        <div class="address" id="mint">
+          AWvR8cEvTgr9QDxCf8kz5FpDJsjVCMqstsFHpP47mpKu
+        </div>
+        <button class="copy-btn" onclick="copyMint()" id="copyButton">
+          Copy Mint Address
+        </button>
+        <p>
+          <a href="https://solscan.io/token/AWvR8cEvTgr9QDxCf8kz5FpDJsjVCMqstsFHpP47mpKu"
+            target="_blank" rel="noopener noreferrer">
+            View Token on Solscan →
+          </a>
+        </p>
+        <p style="font-size:13px;color:#675e54">
+          Ownership disclosure: At the time of the initial
+          review, approximately 99% of ZORU's supply was
+          held in wallets controlled by the creator,
+          including tokens outside the liquidity pool.
+          Distribution can change. Check current holders
+          on Solscan.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-to-buy">
+    <div class="wrap">
+      <h2 class="section-heading">How to Buy ZORU</h2>
+      <div class="steps">
+        <div class="step">
+          <b>01</b>
+          <h3>Set up a wallet</h3>
+          <p>Use a compatible Solana wallet such as Phantom. Keep your recovery phrase private.</p>
+        </div>
+        <div class="step">
+          <b>02</b>
+          <h3>Get SOL</h3>
+          <p>You'll need SOL for the swap and network fees. Only use funds you can afford to lose.</p>
+        </div>
+        <div class="step">
+          <b>03</b>
+          <h3>Open Raydium</h3>
+          <p>Verify the exact mint address, review price impact, and understand the liquidity risk before confirming any trade.</p>
+          <a target="_blank" rel="noopener noreferrer"
+            href="https://raydium.io/swap/?inputMint=sol&amp;outputMint=AWvR8cEvTgr9QDxCf8kz5FpDJsjVCMqstsFHpP47mpKu">
+            Open Raydium →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="community" class="community">
+    <div class="wrap">
+      <div class="eyebrow">The Hamster Community</div>
+      <h2 class="section-heading">Join the ZORU Community.</h2>
+      <p>Share memes, follow project updates, and meet other Solana enthusiasts.</p>
+      <div class="actions" style="justify-content:center">
+        <a class="btn primary" target="_blank" rel="noopener noreferrer"
+          href="https://discord.gg/SageKPEGw">Join Discord →</a>
+        <a class="btn secondary" target="_blank" rel="noopener noreferrer"
+          href="https://x.com/ZoruOnSol">Follow on X →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap disclaimer">
+    <strong>Risk Disclosure:</strong> ZORU is a speculative
+    meme token, not a guaranteed investment. It has low
+    liquidity and highly concentrated token ownership,
+    which can cause significant price changes, slippage,
+    or difficulty selling. Information is provided for
+    transparency and may change over time. Always verify
+    current on-chain data and conduct your own research.
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <strong style="font-size:26px">ZORU</strong>
+      <div style="font-size:12px;color:#aaa">Small Hamster. Big Attitude.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#how-to-buy">How to Buy</a>
+      <a href="#community">Community</a>
+    </div>
+    <div style="font-size:12px;color:#aaa">© ZORU Community</div>
+  </div>
+</footer>
+
+<script>
+  function copyMint() {
+    const mint = "AWvR8cEvTgr9QDxCf8kz5FpDJsjVCMqstsFHpP47mpKu";
+    const button = document.getElementById("copyButton");
+    navigator.clipboard.writeText(mint).then(() => {
+      button.textContent = "Copied!";
+      setTimeout(() => {
+        button.textContent = "Copy Mint Address";
+      }, 2000);
+    }).catch(() => {
+      button.textContent = "Select and copy the address above";
+    });
+  }
+</script>
+</body>
+</html>
